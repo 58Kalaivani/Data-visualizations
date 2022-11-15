@@ -1,0 +1,35 @@
+#install necessary packages
+install.packages('tidyverse')
+install.packages('ggplot2')
+library('ggplot2')
+library('tidyverse')
+
+#scatterplot
+ggplot(diabetes) +geom_point(aes(x =BMI, y = Pregnancies, color = Age), size = 2)
+
+
+#linechart
+ggplot(diabetes) +geom_line(aes(x =BloodPressure, y = Age, color = Outcome), lwd = 1.25)
+
+#barplot
+ggplot(diabetes)+geom_bar(aes(x = Glucose),color = 'lightblue')
+
+#histogram
+ggplot(diabetes) + geom_histogram(aes(x = Insulin),color = "lightblue",binwidth = 50)
+
+#densityplot
+ggplot(diabetes) + geom_density(aes(x = DiabetesPedigreeFunction), alpha = 0.2)
+
+#box plot
+ggplot(diabetes) + geom_boxplot(aes(x = Glucose, y = Age))
+
+#violin plot
+ggplot(diabetes) + geom_violin(aes(x = BloodPressure, y = Age))
+
+#facet_wrap(using built in dataset in r – mpg)
+head(mpg)
+ggplot(mpg, aes(displ, hwy)) + geom_point() + facet_wrap(vars(class))
+
+#facet_grid
+ggplot(data = mpg, aes(x = displ, y = hwy)) + geom_point() + facet_grid(~ class) + theme_gray()
+
